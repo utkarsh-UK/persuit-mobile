@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:persuit/core/theme/colors.dart';
+import 'package:persuit/presentation/screens/home/view.dart';
 import 'package:persuit/presentation/widgets/custom_app_bar.dart';
 import 'package:persuit/presentation/widgets/scaffold_container.dart';
 import 'package:persuit/presentation/widgets/user_avatar.dart';
@@ -73,7 +74,7 @@ class LoginScreen extends StatelessWidget {
           child: SizedBox(
             width: Get.width,
             child: TextButton.icon(
-              onPressed: () {},
+              onPressed: () => Get.to(() => const HomeScreen()),
               style: TextButton.styleFrom(
                 backgroundColor: backgroundColor,
                 side: const BorderSide(
@@ -173,6 +174,7 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
         ),
+        SizedBox(height: 8.0.wp),
       ],
     );
   }

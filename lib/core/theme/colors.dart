@@ -14,6 +14,7 @@ const Color bodyTextColor = Color.fromARGB(255, 105, 105, 105);
 const Color textBackgroundColor = Color(0xFFC5D1DF);
 
 const Color backgroundColor = Color(0xFFFFFFFF);
+const Color sliverBackgroundColor = Color(0xFFEBECEE);
 const Color iconBackgroundColor = Color(0xFFE7F1FD);
 const Color iconColor = Color(0xFF41404E);
 const Color inputBorderColor = Color(0xFFECEDEE);

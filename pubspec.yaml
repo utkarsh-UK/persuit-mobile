@@ -17,6 +17,9 @@ dependencies:
   #arch
   get: ^4.6.1
 
+  #ui
+  font_awesome_flutter: ^10.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
