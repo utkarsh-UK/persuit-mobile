@@ -41,25 +41,29 @@ class _HomeScreenState extends State<HomeScreen> {
         onNavItemClicked: (int index) =>
             setState(() => _currentNavIndex = index),
       ),
-      body: SizedBox(
-        height: size.height,
-        width: size.width,
-        child: Column(
-          children: [
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 400),
-              width: size.width,
-              height: _showIndices ? size.height * 0.3 : 0.0,
-              color: Colors.redAccent,
-            ),
-            Expanded(
-              child: AnimatedOpacity(
-                opacity: _showIndices ? 0.3 : 1.0,
+      resizeToAvoidBottomInset: true,
+      body: GestureDetector(
+        onTap:  FocusScope.of(context).unfocus,
+        child: SizedBox(
+          height: size.height,
+          width: size.width,
+          child: Column(
+            children: [
+              AnimatedContainer(
                 duration: const Duration(milliseconds: 400),
-                child: _navigationScreens[_currentNavIndex],
+                width: size.width,
+                height: _showIndices ? size.height * 0.3 : 0.0,
+                color: Colors.redAccent,
               ),
-            ),
-          ],
+              Expanded(
+                child: AnimatedOpacity(
+                  opacity: _showIndices ? 0.3 : 1.0,
+                  duration: const Duration(milliseconds: 400),
+                  child: _navigationScreens[_currentNavIndex],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
