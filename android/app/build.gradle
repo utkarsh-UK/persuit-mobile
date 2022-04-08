@@ -50,6 +50,40 @@ android {
         versionName flutterVersionName
     }
 
+    
+    flavorDimensions "app"
+
+    productFlavors {
+        dev
+                {
+                    dimension "app"
+                    applicationId "dev.utkarshkore.persuit"
+                    versionCode 1
+                    versionName "1.0.0-dev"
+                }
+        integration
+                {
+                    dimension "app"
+                    applicationId "integration.utkarshkore.persuit"
+                    versionCode 1
+                    versionName "1.0.0-int"
+                }
+        preprod
+                {
+                    dimension "app"
+                    applicationId "preprod.utkarshkore.persuit"
+                    versionCode 1
+                    versionName "1.0.0-test"
+                }
+        prod
+                {
+                    dimension "app"
+                    applicationId "com.utkarshkore.persuit"
+                    versionCode 1
+                    versionName "1.0.0"
+                }
+    }
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
