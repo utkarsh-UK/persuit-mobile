@@ -7,19 +7,20 @@ class WatchlistTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomSliverContent(
+    return CustomSliverContent(
+      key: UniqueKey(),
       appBarTitle: 'Marketwatch',
       tabCount: 6,
       isTabScrollable: true,
-      tabs: [
-        Tab(text: 'IT Companies'),
-        Tab(text: 'Bank'),
-        Tab(text: 'Indices'),
-        Tab(text: 'Hospitality'),
-        Tab(text: 'First Stocks'),
+      tabs: const [
+        Tab(text: 'MW 1'),
+        Tab(text: 'MW 2'),
+        Tab(text: 'MW 3'),
+        Tab(text: 'MW 4'),
+        Tab(text: 'MW 5'),
         Tab(text: 'MW 6'),
       ],
-      tabViews: [
+      tabViews: const [
         WatchList(),
         WatchList(),
         WatchList(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:persuit/presentation/screens/portfolio/widgets/holdings.dart';
 import 'package:persuit/presentation/screens/watchlist/widgets/watch_list.dart';
 import 'package:persuit/presentation/widgets/custom_sliver_content.dart';
 
@@ -15,7 +16,7 @@ class PortfolioTab extends StatelessWidget {
         Tab(text: 'Positions'),
       ],
       tabViews: [
-        WatchList(),
+        Holdings(),
         WatchList(),
       ],
     );

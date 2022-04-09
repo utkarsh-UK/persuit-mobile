@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:persuit/presentation/screens/watchlist/widgets/watch_list.dart';
+import 'package:persuit/presentation/screens/orders/widgets/executed_orders.dart';
+import 'package:persuit/presentation/screens/orders/widgets/gtt_orders.dart';
+import 'package:persuit/presentation/screens/orders/widgets/open_orders.dart';
 import 'package:persuit/presentation/widgets/custom_sliver_content.dart';
 
 class OrdersTab extends StatelessWidget {
@@ -7,18 +9,19 @@ class OrdersTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomSliverContent(
+    return CustomSliverContent(
+      key: UniqueKey(),
       appBarTitle: 'Orders',
       tabCount: 3,
-      tabs: [
+      tabs: const [
         Tab(text: 'Open'),
         Tab(text: 'Executed'),
         Tab(text: 'GTT'),
       ],
-      tabViews: [
-        WatchList(),
-        WatchList(),
-        WatchList(),
+      tabViews: const [
+        OpenOrders(),
+        ExecutedOrders(),
+        GttOrders(),
       ],
     );
   }
