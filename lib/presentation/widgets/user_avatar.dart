@@ -3,13 +3,16 @@ import 'package:persuit/core/theme/colors.dart';
 import '../../core/utils/extensions.dart';
 
 class UserAvatar extends StatelessWidget {
-  const UserAvatar({Key? key}) : super(key: key);
+  final double radius;
+
+  const UserAvatar({Key? key, this.radius = 20.0}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
     return CircleAvatar(
-      radius: 20.0.wp,
+      radius: radius.wp,
       backgroundColor: iconBackgroundColor,
       child: Text(
         'UA',

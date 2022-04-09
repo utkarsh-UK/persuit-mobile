@@ -12,6 +12,7 @@ class OrdersTab extends StatelessWidget {
     return CustomSliverContent(
       key: UniqueKey(),
       appBarTitle: 'Orders',
+      hideTabs: false,
       tabCount: 3,
       tabs: const [
         Tab(text: 'Open'),

@@ -44,28 +44,29 @@ class _HomeScreenState extends State<HomeScreen> {
         onNavItemClicked: (int index) =>
             setState(() => _currentNavIndex = index),
       ),
-
-      persistentFooterButtons: _currentNavIndex != 2 ? null : [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Today\'s P&L',
-              style: textTheme.headline6!.copyWith(
-                fontSize: 12.0.sp,
-                fontWeight: FontWeight.w400,
+      persistentFooterButtons: _currentNavIndex != 2
+          ? null
+          : [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Today\'s P&L',
+                    style: textTheme.headline6!.copyWith(
+                      fontSize: 12.0.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  Text(
+                    '+746.64 +0.80 %',
+                    style: textTheme.headline6!.copyWith(
+                      fontSize: 12.0.sp,
+                      color: positiveColor,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            Text(
-              '+746.64 +0.80 %',
-              style: textTheme.headline6!.copyWith(
-                fontSize: 12.0.sp,
-                color: positiveColor,
-              ),
-            ),
-          ],
-        ),
-      ],
+            ],
       resizeToAvoidBottomInset: true,
       body: GestureDetector(
         onTap: FocusScope.of(context).unfocus,

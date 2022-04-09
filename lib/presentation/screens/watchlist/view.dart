@@ -10,6 +10,7 @@ class WatchlistTab extends StatelessWidget {
     return CustomSliverContent(
       key: UniqueKey(),
       appBarTitle: 'Marketwatch',
+      hideTabs: false,
       tabCount: 6,
       isTabScrollable: true,
       tabs: const [

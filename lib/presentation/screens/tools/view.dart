@@ -10,6 +10,7 @@ class ToolsTab extends StatelessWidget {
     return const CustomSliverContent(
       appBarTitle: 'Tools',
       tabCount: 3,
+      hideTabs: false,
       tabs: [
         Tab(text: 'Baskets'),
         Tab(text: 'SIPs'),
