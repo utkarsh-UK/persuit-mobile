@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:persuit/presentation/screens/watchlist/widgets/watch_list.dart';
+import 'package:persuit/presentation/screens/tools/alerts.dart';
+import 'package:persuit/presentation/screens/tools/baskets.dart';
+import 'package:persuit/presentation/screens/tools/sips.dart';
 import 'package:persuit/presentation/widgets/custom_sliver_content.dart';
 
 class ToolsTab extends StatelessWidget {
@@ -17,9 +19,9 @@ class ToolsTab extends StatelessWidget {
         Tab(text: 'Alerts'),
       ],
       tabViews: [
-        WatchList(),
-        WatchList(),
-        WatchList(),
+        Baskets(),
+        SIPs(),
+        Alerts(),
       ],
     );
   }
