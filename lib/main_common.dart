@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:persuit/core/theme/theme.dart';
 import 'package:persuit/flavor_config.dart';
 import 'package:persuit/presentation/screens/auth/login/view.dart';
+import 'package:persuit/presentation/screens/home/binding.dart';
+import 'package:persuit/presentation/screens/home/view.dart';
 
 void mainCommon(FlavorConfig config) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,12 +23,19 @@ class MyApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
     );
-    
+
     return GetMaterialApp(
       title: config.appTitle,
       debugShowCheckedModeBanner: false,
       theme: ApplicationTheme.getAppThemeData(),
-      home: const LoginScreen(),
+      getPages: [
+        GetPage(name: '/', page: () => const LoginScreen()),
+        GetPage(
+          name: '/home-screen',
+          page: () => const HomeScreen(),
+          binding: HomeBinding(),
+        ),
+      ],
     );
   }
 }

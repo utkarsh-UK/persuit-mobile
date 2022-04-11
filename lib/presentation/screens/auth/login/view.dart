@@ -74,7 +74,7 @@ class LoginScreen extends StatelessWidget {
           child: SizedBox(
             width: Get.width,
             child: TextButton.icon(
-              onPressed: () => Get.to(() => const HomeScreen()),
+              onPressed: () => Get.toNamed('/home-screen'),
               style: TextButton.styleFrom(
                 backgroundColor: backgroundColor,
                 side: const BorderSide(

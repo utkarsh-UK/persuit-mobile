@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:persuit/core/theme/colors.dart';
+import 'package:persuit/presentation/screens/home/controller.dart';
 
 import '../../core/utils/extensions.dart';
 
@@ -30,6 +32,8 @@ class CustomSliverContent extends StatefulWidget {
 
 class _CustomSliverContentState extends State<CustomSliverContent>
     with SingleTickerProviderStateMixin {
+  final HomeController _homeController = Get.find<HomeController>();
+
   late TabController _tabController;
   late ScrollController _scrollController;
 
@@ -105,7 +109,7 @@ class _CustomSliverContentState extends State<CustomSliverContent>
               ? null
               : [
                   IconButton(
-                    onPressed: null,
+                    onPressed: () => _homeController.setShowIndices(true),
                     icon: const FaIcon(
                       FontAwesomeIcons.angleDown,
                       color: iconColor,
