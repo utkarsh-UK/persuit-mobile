@@ -80,18 +80,16 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Obx(
             () => Column(
               children: [
-                AnimatedContainer(
+                AnimatedCrossFade(
+                  crossFadeState: _homeController.showIndices.value
+                      ? CrossFadeState.showFirst
+                      : CrossFadeState.showSecond,
                   duration: const Duration(milliseconds: 400),
-                  width: size.width,
-                  height: _homeController.showIndices.value
-                      ? size.height * 0.45
-                      : 0.0,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 4.0.wp,
-                    vertical: 3.0.wp,
-                  ),
-                  color: Colors.white,
-                  child: MarketIndices(),
+                  firstCurve: Curves.easeInOutCubic,
+                  secondCurve: Curves.easeInToLinear,
+                  firstChild: MarketIndices(),
+                  secondChild: const SizedBox.shrink(),
+                  reverseDuration: const Duration(milliseconds: 200),
                 ),
                 Expanded(
                   child: AnimatedOpacity(

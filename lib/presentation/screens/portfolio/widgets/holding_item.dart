@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:persuit/core/theme/colors.dart';
+import 'package:persuit/domain/entities/holding.dart';
 
 import '../../../../core/utils/extensions.dart';
 
 class HoldingItem extends StatelessWidget {
-  const HoldingItem({Key? key}) : super(key: key);
+  final Holding holding;
+  const HoldingItem({Key? key, required this.holding}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final String directionSign = holding.isInProfit ? "+" : "-";
+    final String todaysDirectionSign = holding.stock.isUptrend ? "+" : "-";
 
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 6.0.wp, vertical: 1.5.wp),
@@ -22,7 +26,7 @@ class HoldingItem extends StatelessWidget {
                 children: [
                   _buildInfoWidget(
                     textTheme: textTheme,
-                    value: '7',
+                    value: '${holding.quantity}',
                     unit: 'Qty.',
                   ),
                   Container(
@@ -37,12 +41,12 @@ class HoldingItem extends StatelessWidget {
                   _buildInfoWidget(
                     textTheme: textTheme,
                     value: 'Avg.',
-                    unit: '645.20',
+                    unit: holding.avgPrice.toStringAsFixed(2),
                   ),
                 ],
               ),
               Text(
-                'BHARTIARTL'.toUpperCase(),
+                holding.stock.name.toUpperCase(),
                 style: textTheme.bodyText2!.copyWith(
                   fontSize: 12.0.sp,
                   fontWeight: FontWeight.w400,
@@ -52,7 +56,7 @@ class HoldingItem extends StatelessWidget {
               _buildInfoWidget(
                 textTheme: textTheme,
                 value: 'Invested',
-                unit: '4516.40',
+                unit: holding.totalInvested.toStringAsFixed(2),
               ),
             ],
           ),
@@ -60,7 +64,7 @@ class HoldingItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                '+18.16%',
+                '$directionSign${holding.overallProfitPercentage}%',
                 style: textTheme.subtitle2!.copyWith(
                   fontSize: 12.0.sp,
                   fontWeight: FontWeight.w400,
@@ -68,7 +72,7 @@ class HoldingItem extends StatelessWidget {
                 ),
               ),
               Text(
-                '+820.40',
+                '$directionSign${holding.overallProfitPrice}',
                 style: textTheme.subtitle2!.copyWith(
                   fontSize: 14.0.sp,
                   fontWeight: FontWeight.w500,
@@ -77,11 +81,12 @@ class HoldingItem extends StatelessWidget {
                 ),
               ),
               _buildInfoWidget(
-                  textTheme: textTheme,
-                  value: 'LTP',
-                  unit: '762.40',
-                  shouldShowPL: true,
-                  ltpWithPL: '-1.71'),
+                textTheme: textTheme,
+                value: 'LTP',
+                unit: holding.stock.latestPrices.toStringAsFixed(2),
+                shouldShowPL: true,
+                ltpWithPL: '$todaysDirectionSign${holding.stock.percentChange}',
+              ),
             ],
           ),
         ],

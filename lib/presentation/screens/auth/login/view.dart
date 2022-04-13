@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:persuit/core/theme/colors.dart';
-import 'package:persuit/presentation/screens/home/view.dart';
 import 'package:persuit/presentation/widgets/custom_app_bar.dart';
 import 'package:persuit/presentation/widgets/scaffold_container.dart';
 import 'package:persuit/presentation/widgets/user_avatar.dart';
@@ -39,15 +38,19 @@ class LoginScreen extends StatelessWidget {
             style: textTheme.bodyText2,
             keyboardType: TextInputType.number,
             maxLength: 6,
+            obscureText: true,
             decoration: InputDecoration(
               counterText: '',
               filled: true,
               fillColor: backgroundColor,
               hintText: 'Enter PIN',
               hintStyle: textTheme.bodyText2!.copyWith(fontSize: 16.0.sp),
-              suffixIcon: const Icon(
-                Icons.arrow_forward,
-                color: Color(0xFF3B7FEF),
+              suffixIcon: GestureDetector(
+                onTap: () => Get.offNamed('/home-screen'),
+                child: const Icon(
+                  Icons.arrow_forward,
+                  color: Color(0xFF3B7FEF),
+                ),
               ),
               contentPadding: EdgeInsets.symmetric(
                 horizontal: 5.0.wp,

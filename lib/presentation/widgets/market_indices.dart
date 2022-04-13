@@ -17,75 +17,80 @@ class MarketIndices extends StatelessWidget {
 
     return SafeArea(
       child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Overview', style: textTheme.headline4),
-                IconButton(
-                  onPressed: () => _homeController.setShowIndices(false),
-                  icon: const FaIcon(
-                    FontAwesomeIcons.xmark,
-                    color: iconColor,
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: 4.0.wp,
+            vertical: 3.0.wp,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Overview', style: textTheme.headline4),
+                  IconButton(
+                    onPressed: () => _homeController.setShowIndices(false),
+                    icon: const FaIcon(
+                      FontAwesomeIcons.xmark,
+                      color: iconColor,
+                    ),
+                    iconSize: 10.wp,
                   ),
-                  iconSize: 10.wp,
-                ),
-              ],
-            ),
-            SizedBox(height: 3.0.wp),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _buildIndiceInfo(
-                  textTheme: textTheme,
-                  indiceName: 'NIFTY 50',
-                  indiceValue: '17725.06',
-                  dayChange: '-59.80',
-                  perChange: '-0.29%',
-                ),
-                _buildIndiceInfo(
-                  textTheme: textTheme,
-                  indiceName: 'NIFTY 50',
-                  indiceValue: '17725.06',
-                  dayChange: '-59.80',
-                  perChange: '-0.29%',
-                ),
-              ],
-            ),
-            SizedBox(height: 3.0.wp),
-            Text(
-              '* Charts indicate 52 weeks trend',
-              style: textTheme.subtitle2!.copyWith(
-                color: bodyTextColor.withOpacity(0.7),
-                fontSize: 12.0.sp,
+                ],
               ),
-            ),
-            SizedBox(height: 2.0.wp),
-            Divider(color: inputBorderColor, thickness: 0.4.wp),
-            SizedBox(height: 3.0.wp),
-            Text(
-              'Funds',
-              style: textTheme.headline6!.copyWith(fontSize: 14.0.sp),
-            ),
-            SizedBox(height: 3.0.wp),
-            Text(
-              'Equity',
-              style: textTheme.subtitle2!.copyWith(
-                color: bodyTextColor.withOpacity(0.7),
-                fontSize: 12.0.sp,
+              SizedBox(height: 3.0.wp),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _buildIndiceInfo(
+                    textTheme: textTheme,
+                    indiceName: 'NIFTY 50',
+                    indiceValue: '17725.06',
+                    dayChange: '-59.80',
+                    perChange: '-0.29%',
+                  ),
+                  _buildIndiceInfo(
+                    textTheme: textTheme,
+                    indiceName: 'NIFTY 50',
+                    indiceValue: '17725.06',
+                    dayChange: '-59.80',
+                    perChange: '-0.29%',
+                  ),
+                ],
               ),
-            ),
-            SizedBox(height: 1.5.wp),
-            Text(
-              '₹3,811.30',
-              style: textTheme.headline6!.copyWith(
-                fontSize: 14.0.sp,
+              SizedBox(height: 3.0.wp),
+              Text(
+                '* Charts indicate 52 weeks trend',
+                style: textTheme.subtitle2!.copyWith(
+                  color: bodyTextColor.withOpacity(0.7),
+                  fontSize: 12.0.sp,
+                ),
               ),
-            ),
-            SizedBox(height: 2.0.wp),
-          ],
+              SizedBox(height: 2.0.wp),
+              Divider(color: inputBorderColor, thickness: 0.4.wp),
+              SizedBox(height: 3.0.wp),
+              Text(
+                'Funds',
+                style: textTheme.headline6!.copyWith(fontSize: 14.0.sp),
+              ),
+              SizedBox(height: 3.0.wp),
+              Text(
+                'Equity',
+                style: textTheme.subtitle2!.copyWith(
+                  color: bodyTextColor.withOpacity(0.7),
+                  fontSize: 12.0.sp,
+                ),
+              ),
+              SizedBox(height: 1.5.wp),
+              Text(
+                '₹3,811.30',
+                style: textTheme.headline6!.copyWith(
+                  fontSize: 14.0.sp,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

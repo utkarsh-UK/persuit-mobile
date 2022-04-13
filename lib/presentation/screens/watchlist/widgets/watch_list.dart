@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:persuit/core/theme/colors.dart';
+import 'package:persuit/core/utils/data.dart';
 import 'package:persuit/presentation/widgets/overlayed_search_box.dart';
 
 import '../../../../core/utils/extensions.dart';
@@ -16,67 +17,78 @@ class WatchList extends StatelessWidget {
         const OverlayedBox(hintText: 'Search & add', isWordLimitVisible: true),
         Expanded(
           child: ListView.separated(
-            itemCount: 10,
+            itemCount: watchlistShares.length,
             separatorBuilder: (_, __) => Divider(
               color: inputBorderColor,
               thickness: 0.4.wp,
             ),
             padding: const EdgeInsets.only(top: 0.0),
-            itemBuilder: (_, index) => Container(
-              padding:
-                  EdgeInsets.symmetric(horizontal: 6.0.wp, vertical: 1.5.wp),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'INFY\n'.toUpperCase(),
-                          style: textTheme.bodyText2!.copyWith(
-                            fontSize: 12.0.sp,
-                            fontWeight: FontWeight.w500,
-                            height: 1.5,
+            itemBuilder: (_, index) {
+              final String directionSign =
+                  watchlistShares[index].isUptrend ? '+' : '-';
+
+              return Container(
+                padding:
+                    EdgeInsets.symmetric(horizontal: 6.0.wp, vertical: 1.5.wp),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: '${watchlistShares[index].name}\n'
+                                .toUpperCase(),
+                            style: textTheme.bodyText2!.copyWith(
+                              fontSize: 12.0.sp,
+                              fontWeight: FontWeight.w500,
+                              height: 1.5,
+                            ),
                           ),
-                        ),
-                        TextSpan(
-                          text: 'NSE 3',
-                          style: textTheme.subtitle2!.copyWith(
-                            fontSize: 10.0.sp,
-                            fontWeight: FontWeight.w400,
-                            color: bodyTextColor.withOpacity(0.6),
+                          TextSpan(
+                            text: watchlistShares[index].exchangeName,
+                            style: textTheme.subtitle2!.copyWith(
+                              fontSize: 10.0.sp,
+                              fontWeight: FontWeight.w400,
+                              color: bodyTextColor.withOpacity(0.6),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: '1814.60\n',
-                          style: textTheme.bodyText2!.copyWith(
-                            fontSize: 12.0.sp,
-                            fontWeight: FontWeight.w500,
-                            height: 1.5,
-                            color: positiveColor,
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text:
+                                '${watchlistShares[index].latestPrices.toStringAsFixed(2)}\n',
+                            style: textTheme.bodyText2!.copyWith(
+                              fontSize: 12.0.sp,
+                              fontWeight: FontWeight.w500,
+                              height: 1.5,
+                              color: watchlistShares[index].isUptrend
+                                  ? positiveColor
+                                  : negativeColor,
+                            ),
                           ),
-                        ),
-                        TextSpan(
-                          text: '+3.60 (+0.20%)',
-                          style: textTheme.subtitle2!.copyWith(
-                            fontSize: 11.0.sp,
-                            fontWeight: FontWeight.w400,
-                            color: bodyTextColor,
+                          TextSpan(
+                            text:
+                                '$directionSign${watchlistShares[index].dayChange}'
+                                ' ($directionSign${watchlistShares[index].percentChange}%)',
+                            style: textTheme.subtitle2!.copyWith(
+                              fontSize: 11.0.sp,
+                              fontWeight: FontWeight.w400,
+                              color: bodyTextColor,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
+                      textAlign: TextAlign.end,
                     ),
-                    textAlign: TextAlign.end,
-                  ),
-                ],
-              ),
-            ),
+                  ],
+                ),
+              );
+            },
           ),
         ),
       ],
