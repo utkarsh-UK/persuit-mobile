@@ -1,6 +1,6 @@
 # Persuit
 
-A purposely made close application of Zerodha's popular trading platform "Kite".
+A purposely made clone application of Zerodha's popular trading platform "Kite". Sole purpose of this project is for learning.
 
 [![Watch the video]](https://drive.google.com/file/d/1ZPLLlusF5-M7C1dS9uuoZ-eHmADiDdvL/view?usp=sharing)
 
